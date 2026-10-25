@@ -87,15 +87,13 @@
 <style>
   .dev {
     position: fixed;
-    /* Sits above the room action bar so it never hides Start or Leave */
-    right: var(--space-4);
-    bottom: 76px;
+    right: var(--space-6);
+    bottom: var(--space-6);
     width: 300px;
     padding: var(--space-3);
-    border: 1px solid rgb(240 178 50 / 0.35);
-    border-radius: var(--radius-lg);
-    background: var(--bg-overlay);
-    box-shadow: var(--shadow-pop);
+    border-left: 2px solid var(--warn);
+    background: var(--bg-input);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
     z-index: 40;
     font-size: var(--text-xs);
   }
@@ -105,7 +103,7 @@
     align-items: center;
     gap: var(--space-2);
     margin-bottom: var(--space-2);
-    color: var(--warning);
+    color: var(--warn);
     font-weight: 700;
   }
   .mode {
@@ -123,7 +121,7 @@
     flex-direction: column;
     gap: var(--space-1);
     padding: var(--space-2) 0;
-    border-top: 1px solid var(--divider);
+    border-top: 1px solid var(--line);
   }
   .label {
     font-weight: 700;
@@ -140,28 +138,27 @@
   .row button {
     height: 26px;
     padding: 0 var(--space-2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--bg-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: transparent;
     font-size: var(--text-xs);
     cursor: pointer;
   }
   .row button:hover:not(:disabled) {
-    border-color: var(--border-strong);
-    background: var(--bg-raised-hover);
+    border-color: var(--text-faint);
   }
   .row button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
   .row button.on {
-    border-color: var(--warning);
-    background: var(--warning-soft);
+    border-color: var(--warn);
+    color: var(--warn);
   }
 
   .note {
     padding-top: var(--space-2);
-    border-top: 1px solid var(--divider);
+    border-top: 1px solid var(--line);
     color: var(--text-faint);
   }
   code {

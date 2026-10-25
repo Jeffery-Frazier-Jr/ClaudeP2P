@@ -35,8 +35,18 @@ we are deliberately not building yet.
 
 ## Look and feel
 
-- Discord-style **gray** theme to start. Theme presets (including an
-  all-black look) come later.
+- **Gray** to start. Theme presets (including an all-black look) come later.
+- **Not a Discord copy.** The Rooms area follows the earlier project's use of
+  space instead: one flat surface, a centered column, controls on the left,
+  the list on the right, plain rows with thin dividers, underlined inputs,
+  text tabs.
+- **Avoid:** cards inside cards, pill badges everywhere, colored status pills.
+  Status speaks only when something is wrong (the directory shows nothing
+  while it's fine, and a notice when it isn't).
+- Confirmations and prompts happen **inline** (in the row or column) rather
+  than in popups where possible.
+- Primary buttons are light gray, not a brand color. Color is kept for meaning:
+  green for connected, amber for waiting, red for problems.
 - The earlier Figma is a source of **ideas**, not a design to copy: browser-style
   channel tabs, a voice/members side panel and a floating message box are worth keeping.
 - Everything visual lives in CSS variables (`src/styles/tokens.css`) so users

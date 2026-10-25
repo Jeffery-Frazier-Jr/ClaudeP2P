@@ -41,10 +41,10 @@ Saving a file updates the page instantly.
 
 ## The simulator
 
-In `pnpm dev`, the wrench button at the bottom of the left rail opens the
-**Simulator**. It forces the situations the real network will cause (the
-directory going offline, people joining and leaving, the owner leaving, a direct
-connection failing) so every screen gets designed, not just the happy path.
+In `pnpm dev`, the **Simulator** link in the top bar opens a panel that forces
+the situations the real network will cause (the directory going offline, people
+joining and leaving, the owner leaving, a direct connection failing) so every
+screen gets designed, not just the happy path.
 
 Password-protected sample rooms use the password `letmein`.
 
@@ -52,16 +52,16 @@ Password-protected sample rooms use the password `letmein`.
 
 ```
 src/
-  App.svelte                 the window: rail, sidebar, main area
+  App.svelte                 the window: top bar and the current page
   lib/
     core/                    the boundary to the backend
       types.ts               the contract (what the real backend must provide)
       mock.ts                the fake backend used for now
     state/                   reactive app state fed by backend events
     views/                   full screens (lobby, room)
-    components/              reusable pieces (cards, dialogs, avatars, icons…)
+    components/              reusable pieces (rows, forms, avatars, icons…)
   styles/
     tokens.css               every color, size and timing (themes change these)
-    base.css                 reset, buttons, inputs, badges
+    base.css                 reset, page layout, buttons, inputs
 scripts/check-security.mjs   enforces the rules in docs/security.md
 ```

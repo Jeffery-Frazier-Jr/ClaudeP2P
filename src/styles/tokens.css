@@ -4,49 +4,42 @@
 :root {
   color-scheme: dark;
 
-  /* Surfaces, darkest to lightest */
-  --bg-rail: #1e1f22;
-  --bg-sunken: #1e1f22;
-  --bg-sidebar: #2b2d31;
-  --bg-main: #313338;
-  --bg-raised: #383a40;
-  --bg-raised-hover: #3f4248;
-  --bg-active: #43454c;
-  --bg-overlay: #232428;
-  --scrim: rgb(0 0 0 / 0.62);
+  /* One flat surface; depth comes from lines and type, not boxes */
+  --bg: #2a2b2f;
+  --bg-input: #232428;
+  --bg-hover: rgb(255 255 255 / 0.035);
+  --bg-selected: rgb(255 255 255 / 0.06);
+  --scrim: rgb(0 0 0 / 0.55);
 
-  --border: #3f4147;
-  --border-strong: #4e5058;
-  --divider: rgb(255 255 255 / 0.06);
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
 
   /* Text */
-  --text: #f2f3f5;
-  --text-muted: #b5bac1;
-  --text-faint: #80848e;
-  --text-on-accent: #ffffff;
+  --text: #ececee;
+  --text-muted: #a3a5ab;
+  --text-faint: #74767d;
 
-  /* Accent and status */
-  --accent: #6c7cff;
-  --accent-hover: #5b6bf0;
-  --accent-soft: rgb(108 124 255 / 0.16);
-  --success: #3ba55c;
-  --success-soft: rgb(59 165 92 / 0.16);
-  --warning: #f0b232;
-  --warning-soft: rgb(240 178 50 / 0.15);
-  --danger: #ed4245;
-  --danger-hover: #d83c3e;
-  --danger-soft: rgb(237 66 69 / 0.15);
-  --focus-ring: #8b98ff;
+  /* Primary actions are light, not colored */
+  --primary: #e6e7ea;
+  --primary-hover: #ffffff;
+  --primary-text: #1d1e21;
+
+  /* Color only where it means something */
+  --focus: #9aa4ff;
+  --good: #6fcf8e;
+  --warn: #e8b85a;
+  --bad: #f07a7c;
+  --bad-line: rgb(240 122 124 / 0.5);
 
   /* Avatar colors (picked from the key, never chosen) */
-  --avatar-0: #5865f2;
-  --avatar-1: #3ba55c;
-  --avatar-2: #eb459e;
-  --avatar-3: #e67e22;
-  --avatar-4: #1abc9c;
-  --avatar-5: #9b59b6;
-  --avatar-6: #e9a23b;
-  --avatar-7: #3498db;
+  --avatar-0: #5b67c9;
+  --avatar-1: #3f8f5c;
+  --avatar-2: #b24f86;
+  --avatar-3: #b8682f;
+  --avatar-4: #2f8f84;
+  --avatar-5: #7d58a8;
+  --avatar-6: #a88733;
+  --avatar-7: #3b7cb0;
 
   /* Type */
   --font: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial,
@@ -58,7 +51,7 @@
   --text-md: 14px;
   --text-lg: 16px;
   --text-xl: 20px;
-  --text-2xl: 24px;
+  --text-2xl: 28px;
 
   /* Spacing */
   --space-1: 4px;
@@ -69,16 +62,10 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-12: 48px;
 
   /* Shape */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-pill: 999px;
-
-  --shadow-card: 0 1px 0 rgb(0 0 0 / 0.2), 0 1px 3px rgb(0 0 0 / 0.15);
-  --shadow-pop: 0 8px 28px rgb(0 0 0 / 0.45);
+  --radius: 4px;
 
   /* Motion */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -86,7 +73,7 @@
   --normal: 200ms;
 
   /* Layout */
-  --rail-width: 72px;
-  --sidebar-width: 240px;
-  --header-height: 52px;
+  --content-width: 1180px;
+  --aside-width: 300px;
+  --topbar-height: 64px;
 }

@@ -23,6 +23,8 @@ import { tagFromId } from './tag';
 /** Every mock room with a password uses this one. */
 export const MOCK_PASSWORD = 'letmein';
 
+const MAX_ROOMS = 30;
+
 const SAMPLE_NAMES = [
   'SawrToonz',
   'King Art',
@@ -88,11 +90,20 @@ export class MockCore implements Core {
   private failNextLink = false;
   private liveActivity = true;
   private timers = new Set<ReturnType<typeof setTimeout>>();
+  private ticker: ReturnType<typeof setInterval>;
 
   constructor() {
     this.seedRooms();
     this.later(700, () => this.setDirectory('online'));
-    setInterval(() => this.liveTick(), 5000);
+    this.ticker = setInterval(() => this.liveTick(), 5000);
+  }
+
+  /** Stops every timer. Used when the dev server reloads this file. */
+  dispose(): void {
+    clearInterval(this.ticker);
+    for (const t of this.timers) clearTimeout(t);
+    this.timers.clear();
+    this.listeners.clear();
   }
 
   // ── Core interface ───────────────────────────────────────────────────────
@@ -329,6 +340,8 @@ export class MockCore implements Core {
   // ── Internals ────────────────────────────────────────────────────────────
 
   private seedRooms(): void {
+    // A realistic lobby is a few dozen rooms, not hundreds.
+    if (this.rooms.size >= MAX_ROOMS) return;
     const now = Date.now();
     const titles = [...SAMPLE_TITLES].sort(() => Math.random() - 0.5).slice(0, 8);
     titles.forEach((title, i) => {

@@ -1,22 +1,14 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { app } from '../state/app.svelte';
-  import Icon, { type IconName } from './Icon.svelte';
-
-  const ICONS: Record<string, IconName> = {
-    info: 'info',
-    success: 'check',
-    warning: 'alert',
-    error: 'alert',
-  };
+  import Icon from './Icon.svelte';
 </script>
 
 <div class="toasts" role="status" aria-live="polite">
   {#each app.toasts as toast (toast.id)}
-    <div class={['toast', toast.level]} transition:fly={{ y: 12, duration: 220 }}>
-      <span class="icon"><Icon name={ICONS[toast.level] ?? 'info'} size={16} /></span>
+    <div class={['toast', toast.level]} transition:fly={{ y: 8, duration: 200 }}>
       <p>{toast.text}</p>
-      <button class="icon-btn close" type="button" aria-label="Dismiss" onclick={() => app.dismissToast(toast.id)}>
+      <button class="icon-btn" type="button" aria-label="Dismiss" onclick={() => app.dismissToast(toast.id)}>
         <Icon name="x" size={14} />
       </button>
     </div>
@@ -24,16 +16,15 @@
 </div>
 
 <style>
+  /* Bottom-left, out of the way of the list and the actions */
   .toasts {
-    /* Centered over the main area, above the room action bar */
     position: fixed;
-    bottom: 76px;
-    left: calc(50% + (var(--rail-width) + var(--sidebar-width)) / 2);
-    translate: -50% 0;
+    left: var(--space-6);
+    bottom: var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    width: min(440px, calc(100vw - 32px));
+    width: min(380px, calc(100vw - 48px));
     z-index: 50;
     pointer-events: none;
   }
@@ -41,43 +32,24 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
-    border-radius: var(--radius-md);
-    background: var(--bg-overlay);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-pop);
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+    border-left: 2px solid var(--text-faint);
+    background: var(--bg-input);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.35);
     pointer-events: auto;
+  }
+  .toast.success {
+    border-left-color: var(--good);
+  }
+  .toast.warning {
+    border-left-color: var(--warn);
+  }
+  .toast.error {
+    border-left-color: var(--bad);
   }
   p {
     flex: 1;
     font-size: var(--text-sm);
-  }
-  .icon {
-    display: grid;
-    place-items: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .info .icon {
-    background: var(--accent-soft);
-    color: #c3caff;
-  }
-  .success .icon {
-    background: var(--success-soft);
-    color: #7fd69c;
-  }
-  .warning .icon {
-    background: var(--warning-soft);
-    color: #f6cc72;
-  }
-  .error .icon {
-    background: var(--danger-soft);
-    color: #f58b8d;
-  }
-  .close {
-    width: 26px;
-    height: 26px;
+    color: var(--text-muted);
   }
 </style>

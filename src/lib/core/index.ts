@@ -7,4 +7,8 @@ import type { Core } from './types';
 export const mock = new MockCore();
 export const core: Core = mock;
 
+// The dev server swaps modules without reloading the page; stop the old
+// fake backend's timers so they don't pile up.
+import.meta.hot?.dispose(() => mock.dispose());
+
 export * from './types';
