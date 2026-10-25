@@ -1,0 +1,92 @@
+/* Design tokens: every color, size and timing in one place.
+   Themes will later override these variables and nothing else. */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces, darkest to lightest */
+  --bg-rail: #1e1f22;
+  --bg-sunken: #1e1f22;
+  --bg-sidebar: #2b2d31;
+  --bg-main: #313338;
+  --bg-raised: #383a40;
+  --bg-raised-hover: #3f4248;
+  --bg-active: #43454c;
+  --bg-overlay: #232428;
+  --scrim: rgb(0 0 0 / 0.62);
+
+  --border: #3f4147;
+  --border-strong: #4e5058;
+  --divider: rgb(255 255 255 / 0.06);
+
+  /* Text */
+  --text: #f2f3f5;
+  --text-muted: #b5bac1;
+  --text-faint: #80848e;
+  --text-on-accent: #ffffff;
+
+  /* Accent and status */
+  --accent: #6c7cff;
+  --accent-hover: #5b6bf0;
+  --accent-soft: rgb(108 124 255 / 0.16);
+  --success: #3ba55c;
+  --success-soft: rgb(59 165 92 / 0.16);
+  --warning: #f0b232;
+  --warning-soft: rgb(240 178 50 / 0.15);
+  --danger: #ed4245;
+  --danger-hover: #d83c3e;
+  --danger-soft: rgb(237 66 69 / 0.15);
+  --focus-ring: #8b98ff;
+
+  /* Avatar colors (picked from the key, never chosen) */
+  --avatar-0: #5865f2;
+  --avatar-1: #3ba55c;
+  --avatar-2: #eb459e;
+  --avatar-3: #e67e22;
+  --avatar-4: #1abc9c;
+  --avatar-5: #9b59b6;
+  --avatar-6: #e9a23b;
+  --avatar-7: #3498db;
+
+  /* Type */
+  --font: 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-display: 'Segoe UI Variable Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cascadia Mono', 'Cascadia Code', Consolas, ui-monospace, monospace;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Shape */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 0 rgb(0 0 0 / 0.2), 0 1px 3px rgb(0 0 0 / 0.15);
+  --shadow-pop: 0 8px 28px rgb(0 0 0 / 0.45);
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 120ms;
+  --normal: 200ms;
+
+  /* Layout */
+  --rail-width: 72px;
+  --sidebar-width: 240px;
+  --header-height: 52px;
+}

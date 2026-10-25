@@ -1,0 +1,17 @@
+# Supply-chain policy. See docs/security.md for the reasoning.
+
+# Refuse any package version published less than 7 days ago (in minutes).
+# Hijacked releases are usually caught and pulled within that window.
+# A security fix that cannot wait is added to minimumReleaseAgeExclude
+# by exact version, after checking its advisory and provenance.
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude: []
+
+# Fail if a package version was published with weaker trust evidence
+# (for example, without provenance) than an earlier version had.
+trustPolicy: no-downgrade
+
+# Dependency install scripts are how the 2025-2026 npm worms spread.
+# Nothing may run one unless it is listed here as true.
+strictDepBuilds: true
+allowBuilds: {}
