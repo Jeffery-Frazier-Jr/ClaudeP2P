@@ -51,8 +51,8 @@
     </div>
     <div class="meta">
       <span>{room.owner.nickname} <span class="tag">#{room.owner.tag}</span></span>
-      {#if room.visibility === 'friends'}<span>Friends only</span>{/if}
-      {#if isYours}<span class="yours">Your room</span>{/if}
+      {#if room.visibility === 'friends'}<span>Friends</span>{/if}
+      {#if isYours}<span class="yours">Yours</span>{/if}
       <span>{timeAgo(room.createdAt, clock.now)}</span>
     </div>
   </div>

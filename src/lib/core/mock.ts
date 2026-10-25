@@ -236,7 +236,7 @@ export class MockCore implements Core {
     this.removeFromRoom(session.id, peerId);
     this.emitListings();
     this.emitSession();
-    this.notice('info', `${target.profile.nickname} was removed from the room.`);
+    this.notice('info', `Removed ${target.profile.nickname}.`);
   }
 
   async startRoom(): Promise<void> {
@@ -413,7 +413,6 @@ export class MockCore implements Core {
     session.phase = 'connecting';
     for (const m of session.members) if (!m.isYou) m.link = 'connecting';
     this.emitSession();
-    this.notice('info', 'Room started. Disconnected from the directory; connecting directly…');
 
     const others = session.members.filter((m) => !m.isYou);
     const failing = this.failNextLink ? others[others.length - 1] : undefined;
@@ -425,10 +424,7 @@ export class MockCore implements Core {
         if (this.session !== session) return;
         m.link = m === failing ? 'failed' : 'connected';
         if (m === failing) {
-          this.notice(
-            'warning',
-            `Couldn't connect directly to ${m.profile.nickname}. Rooms never use a relay, so they can't join this session.`,
-          );
+          this.notice('warning', `Couldn't connect to ${m.profile.nickname}.`);
         }
         this.emitSession();
         pending -= 1;
@@ -445,7 +441,6 @@ export class MockCore implements Core {
     }
     session.phase = 'started';
     this.emitSession();
-    this.notice('success', 'Connected peer-to-peer. Nothing goes through the directory now.');
   }
 
   private close(reason: NonNullable<RoomSession['closedReason']>): void {

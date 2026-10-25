@@ -37,9 +37,16 @@ we are deliberately not building yet.
 
 - **Gray** to start. Theme presets (including an all-black look) come later.
 - **Not a Discord copy.** The Rooms area follows the earlier project's use of
-  space instead: one flat surface, a centered column, controls on the left,
-  the list on the right, plain rows with thin dividers, underlined inputs,
-  text tabs.
+  space instead: one flat surface, one centered column, plain rows with thin
+  dividers, underlined inputs, text tabs.
+- **Whitespace in moderation.** Space is for breathing room, not for spreading
+  settings around the page. Options live in **menus that open when needed**
+  (filters inside the search bar, Create room, the room's "⋯" menu), not on
+  screen all the time.
+- **Don't over-explain.** Labels, not descriptions. No hint text under every
+  switch or button; a short message only when something goes wrong.
+- **Blocklist** isn't part of creating a room. The owner reaches it from the
+  room's menu, and later from the profile area.
 - **Avoid:** cards inside cards, pill badges everywhere, colored status pills.
   Status speaks only when something is wrong (the directory shows nothing
   while it's fine, and a notice when it isn't).

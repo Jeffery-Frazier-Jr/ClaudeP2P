@@ -16,9 +16,9 @@
 
   const LINK = {
     pending: '',
-    connecting: 'Connecting directly…',
+    connecting: 'Connecting',
     connected: 'Direct',
-    failed: "Couldn't connect",
+    failed: 'Failed',
   } as const;
 </script>
 
@@ -36,9 +36,10 @@
 
   <div class="end">
     {#if confirming}
-      <span class="question">Remove {member.profile.nickname}?</span>
       <button class="link" type="button" onclick={() => onremove(member, false)}>Remove</button>
-      <button class="link link-danger" type="button" onclick={() => onremove(member, true)}>Remove and block</button>
+      <button class="link link-danger" type="button" title="Remove and add to the blocklist" onclick={() => onremove(member, true)}>
+        Block
+      </button>
       <button class="link" type="button" onclick={() => (confirming = false)}>Cancel</button>
     {:else}
       {#if phase !== 'waiting' && !member.isYou}
@@ -109,10 +110,6 @@
   .row:hover .remove,
   .remove:focus-visible {
     opacity: 1;
-  }
-
-  .question {
-    color: var(--text);
   }
 
   .link-state {

@@ -73,7 +73,6 @@
   --normal: 200ms;
 
   /* Layout */
-  --content-width: 1180px;
-  --aside-width: 300px;
+  --content-width: 880px;
   --topbar-height: 64px;
 }

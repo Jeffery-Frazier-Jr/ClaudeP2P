@@ -63,7 +63,7 @@
       <li class={['person', { blocked: isBlocked }]}>
         <Avatar profile={person} size="xs" />
         <span class="name">{person.nickname} <span class="tag">#{person.tag}</span></span>
-        <button class={['link', { 'link-danger': !isBlocked }]} type="button" aria-pressed={isBlocked} onclick={() => toggle(person.id)}>
+        <button class="link" type="button" aria-pressed={isBlocked} onclick={() => toggle(person.id)}>
           {isBlocked ? 'Unblock' : 'Block'}
         </button>
       </li>
